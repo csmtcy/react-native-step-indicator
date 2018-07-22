@@ -63,8 +63,8 @@ export default class StepIndicator extends PureComponent {
       <View style={[styles.container, direction === 'vertical' ? {flexDirection: 'row', flex:1} : {flexDirection: 'column'}]}>
         {this.state.width !== 0 && this.renderProgressBarBackground()}
         {this.state.width !== 0 && this.renderProgressBar()}
-        {this.renderStepIndicator()}
         {labels && this.renderStepLabels()}
+        {this.renderStepIndicator()}
       </View>
     );
   }
@@ -97,7 +97,7 @@ export default class StepIndicator extends PureComponent {
       progressBarBackgroundStyle = {
         backgroundColor:this.state.customStyles.separatorUnFinishedColor,
         position:'absolute',
-        top:(this.state.height - this.state.customStyles.separatorStrokeWidth)/2,
+        top:(this.state.height + 8),
         left:this.state.width/(2*stepCount),
         right:this.state.width/(2*stepCount),
         height:this.state.customStyles.separatorStrokeWidth
@@ -135,7 +135,8 @@ export default class StepIndicator extends PureComponent {
       progressBarStyle = {
         backgroundColor:this.state.customStyles.separatorFinishedColor,
         position:'absolute',
-        top:(this.state.height - this.state.customStyles.separatorStrokeWidth)/2,
+        // top:(this.state.height - this.state.customStyles.separatorStrokeWidth)/2,
+        top:(this.state.height + 8),
         left:this.state.width/(2*stepCount),
         right:this.state.width/(2*stepCount),
         height:this.state.customStyles.separatorStrokeWidth,
